@@ -45,13 +45,37 @@ private:
     int egzas_;
     vector<int> pazymiai;
     float balasv_, balasm_, mediana_;
-    double* elem;
 
 public:
-    Studentas() : Zmogus(), egzas_(0), balasv_(0), balasm_(0), mediana_(0), elem(nullptr) {};
-    ~Studentas();
-    Studentas(const Studentas& o);
-    Studentas& operator=(const Studentas& o);
+    Studentas() : Zmogus(), egzas_(0), balasv_(0), balasm_(0), mediana_(0){};
+    ~Studentas() {
+        pazymiai.clear();
+        //cout << "Suveikia destruktorius (objektas sunaikintas)" << endl;
+    };
+    Studentas(const Studentas& o)
+    {
+        vardas_ = o.vardas_;
+        pavarde_ = o.pavarde_;
+        egzas_ = o.egzas_;
+        pazymiai = o.pazymiai;
+        balasv_ = o.balasv_;
+        balasm_ = o.balasm_;
+        mediana_ = o.mediana_;
+    };
+
+    Studentas& operator=(const Studentas& o) {
+        if (this != &o)
+        {
+            vardas_ = o.vardas_;
+            pavarde_ = o.pavarde_;
+            egzas_ = o.egzas_;
+            pazymiai = o.pazymiai;
+            balasv_ = o.balasv_;
+            balasm_ = o.balasm_;
+            mediana_ = o.mediana_;
+        }
+        return *this;
+    };
 
     friend istream& operator>>(istream& input, Studentas& s) {
         string vardas, pavarde;

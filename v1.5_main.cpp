@@ -76,6 +76,8 @@ int main()
         Studentas stud;
         stud.setVardas("Vardenis");
         stud.setPavarde("Pavardenis");
+        stud.setBalasv(8);
+        stud.setBalasm(4);
         Studentas stud_copy{stud};
         Studentas stud_prisk = stud;
         cout << "Sukurtas studentas: " << endl;
