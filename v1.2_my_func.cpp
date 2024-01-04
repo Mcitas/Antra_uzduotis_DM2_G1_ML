@@ -1,53 +1,5 @@
 #include "v1.2_head.h"
 
-Studentas::~Studentas() {
-    delete[] elem;
-    //cout << "Suveikia destruktorius (objektas sunaikintas)" << endl;
-}
-
-Studentas::Studentas(const Studentas& o) {
-    vardas_ = o.vardas_;
-    pavarde_ = o.pavarde_;
-    egzas_ = o.egzas_;
-    pazymiai = o.pazymiai;
-    balasv_ = o.balasv_;
-    balasm_ = o.balasm_;
-    mediana_ = o.mediana_;
-    if (o.elem != nullptr) 
-    {
-        elem = new double[o.pazymiai.size()];
-        copy(o.elem, o.elem + o.pazymiai.size(), elem);
-    }
-    else 
-    {
-        elem = nullptr;
-    }
-}
-
-Studentas& Studentas::operator=(const Studentas& o) {
-    if (this != &o) 
-    {
-        vardas_ = o.vardas_;
-        pavarde_ = o.pavarde_;
-        egzas_ = o.egzas_;
-        pazymiai = o.pazymiai;
-        balasv_ = o.balasv_;
-        balasm_ = o.balasm_;
-        mediana_ = o.mediana_;
-        delete[] elem;
-        if (o.elem != nullptr) 
-        {
-            elem = new double[o.pazymiai.size()];
-            copy(o.elem, o.elem + o.pazymiai.size(), elem);
-        }
-        else 
-        {
-            elem = nullptr;
-        }
-    }
-    return *this;
-}
-
 void Studentas::setVardas(string vardas) {
     vardas_ = vardas;
 }
